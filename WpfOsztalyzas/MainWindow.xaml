@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfOsztalyzas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOsztalyzas"
+        mc:Ignorable="d"
+        Title="Tanári Napló" Height="550" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Neve:" VerticalAlignment="Center" FontSize="20"/>
+        <TextBox x:Name="txtNev" 
+                 Grid.Column="1"
+                 Margin="10"
+                 Background="Cornsilk" 
+                 VerticalAlignment="Center"
+                 FontSize="20"/>
+
+        <Label Content="Dátum:" VerticalAlignment="Center"
+               Grid.Row="1" FontSize="20"/>
+        <DatePicker x:Name="datDatum" 
+                    Text="2023. 03. 07."
+                    Margin="10"
+                    Grid.Row="1" Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontSize="20"/>
+
+        <Label Content="Tantárgy:" VerticalAlignment="Center"
+                   Grid.Row="2"
+               FontSize="20"/>
+        <ComboBox x:Name="cboTantargy"
+                      Margin="10"
+                      Grid.Row="2" Grid.Column="1"
+                  FontSize="20">
+            <ComboBoxItem Content="Matematika"/>
+            <ComboBoxItem Content="Angol nyelv"/>
+            <ComboBoxItem Content="Fizika"/>
+            <ComboBoxItem Content="Történelem"/>
+            <ComboBoxItem Content="Magyar irodalom"/>
+        </ComboBox>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Jegy:" FontSize="20"/>
+            <Label x:Name="lblJegy" FontSize="20"
+                   FontWeight="DemiBold" Foreground="Red"
+                   VerticalAlignment="Center"/>
+        </StackPanel>
+        <Slider x:Name="sliJegy" 
+                Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                Minimum="1" Maximum="5" ValueChanged="sliJegy_ValueChanged"/>
+
+
+        <Button x:Name="btnNaploBetoltese" 
+                Margin="15"
+                Grid.Row="4"
+                Content="Napló betöltése" Click="btnBetolt_Click"
+                FontSize="20"/>
+
+        <Button x:Name="btnRogzit" 
+                Margin="15"
+                Grid.Row="4" Grid.Column="1"
+                Content="Rögzít naplóba" Click="btnRogzit_Click"
+                FontSize="20"/>
+
+        <DataGrid x:Name="dgJegyek" Grid.Row="6" Grid.ColumnSpan="2"
+                  Margin="4"
+                  Background="LightGreen"/>
+    </Grid>
+</Window>
